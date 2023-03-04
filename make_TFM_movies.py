@@ -36,7 +36,7 @@ def main(path_supp_stack, supp_stack_file_name, savepath, forcemap_pixelsize, dm
     
     forcemap_pixelsize *= 1e-6
     print("Loading image stack")
-    # supp_stack = io.imread(path_supp_stack)[:, :, :]  # / (2 ** 16)
+    supp_stack = io.imread(path_supp_stack)[:, :, :]  # / (2 ** 16)
     # load data
     d_x = np.load(savepath + "d_x.npy") * forcemap_pixelsize * 1e6
     d_y = np.load(savepath + "d_y.npy") * forcemap_pixelsize * 1e6
@@ -49,12 +49,12 @@ def main(path_supp_stack, supp_stack_file_name, savepath, forcemap_pixelsize, dm
     for frame in np.arange(no_frames):
         make_displacement_plots(d_x[frame, :, :], d_y[frame, :, :], dmax, savepath + "displacement" + str(frame) + ".png", forcemap_pixelsize, frame=frame)
         make_traction_plots(t_x[frame, :, :], t_y[frame, :, :], pmax, savepath + "traction" + str(frame), forcemap_pixelsize, frame=frame)
-        # plot_image_with_forces(2*img_as_float(supp_stack[frame, :, :]), t_x[frame, :, :], t_y[frame, :, :], pmax, savepath + supp_stack_file_name + "_forces" + str(frame), forcemap_pixelsize, frame=frame)
+        plot_image_with_forces(2*img_as_float(supp_stack[frame, :, :]), t_x[frame, :, :], t_y[frame, :, :], pmax, savepath + supp_stack_file_name + "_forces" + str(frame), forcemap_pixelsize, frame=frame)
 
 
     make_movies_from_images(savepath, "displacement", no_frames)
     make_movies_from_images(savepath, "traction", no_frames)
-    # make_movies_from_images(savepath, supp_stack_file_name + "_forces", no_frames)
+    make_movies_from_images(savepath, supp_stack_file_name + "_forces", no_frames)
     # make_movies_from_images(savepath, "xx-Stress", no_frames)
     # make_movies_from_images(savepath, "yy-Stress", no_frames)
     # make_movies_from_images(savepath, "avg-Stress", no_frames)

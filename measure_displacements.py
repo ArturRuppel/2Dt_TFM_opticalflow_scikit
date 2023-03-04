@@ -59,7 +59,7 @@ def displacement_measurement_2Dt_main(moving_stack, fixed_image, downsamplerate)
         t0 = time.perf_counter()
         d_x_current, d_y_current, moving_image_morphed = displacement_measurement_2D(moving_stack[frame, :, :], fixed_image)
 
-        moving_stack_morphed[frame, :, :] = moving_image_morphed
+        moving_stack_morphed[frame, :, :] = img_as_uint(moving_image_morphed)
 
         d_x[frame, :, :] = d_x_current
         d_y[frame, :, :] = d_y_current

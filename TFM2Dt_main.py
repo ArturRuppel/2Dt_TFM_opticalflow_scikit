@@ -14,16 +14,16 @@ finterval = 90              # interval between frames in s
 pixelsize = 0.1           # size of a pixel in the bead image in µm
 # pixelsize = 0.217           # size of a pixel in the bead image in µm
 # pixelsize = 0.325           # size of a pixel in the bead image in µm
-downsamplerate = 8          # final forcemaps will have a resolution of the image divided by this number
+downsamplerate = 4          # final forcemaps will have a resolution of the image divided by this number
 radius = 20                 # radius of rolling ball for background substraction
 lower_threshold = 70        # lower threshold percentile for bead stack
 sigma_smooth = 1            # radius of gaussian smoothing window
-dmax = 1                    # max displacement for maps in micron
+dmax = 0.4                    # max displacement for maps in micron
 pmax = 1                    # max traction for maps in kPa
 lambda_max = 600            # max line tension in N/m
 E = 6000                   # rigidity of the hydrogel in Pa
 nu = 0.5                    # poisson ratio of the hydrogel
-alpha = 10 * 1e-18           # regularization parameter for force calculation
+alpha = 1 * 1e-19           # regularization parameter for force calculation
 
 
 # path = "D:/2022-10-21 dragonfly induced mesoderm GAP-GFP TFM 3kPa/position"
